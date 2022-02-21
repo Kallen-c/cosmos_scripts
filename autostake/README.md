@@ -18,6 +18,6 @@ sudo apt install screen
 
 screen -S autostake
 
-#Start spam txs
+#Start autostake
 
 cd $HOME/autostake && ./autostake.sh
