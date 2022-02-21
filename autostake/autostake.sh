@@ -34,7 +34,7 @@ BAL=$(${service} q bank balances ${DEL_ADDR} -o json | jq -r '.balances | .[].am
 echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} ${denom}\n"
         echo -e "Stake ALL\n"
 if (( BAL > 1000 )); then
-            echo -e "${PWD}\n${PWD}\n" | ${serice} tx staking delegate ${VAL_ADDR} ${BAL}${denom} --from $wallet --chain-id ${chain} ${keyring} ${gasfees} -y
+            echo -e "${PWD}\n${PWD}\n" | ${service} tx staking delegate ${VAL_ADDR} ${BAL}${denom} --from $wallet --chain-id ${chain} ${keyring} ${gasfees} -y
         else
                                 echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} ${denom} BAL < 1000 ((((\n"
         fi
