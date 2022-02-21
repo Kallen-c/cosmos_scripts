@@ -14,7 +14,7 @@ denom="" # example ucoho
 gasfees="" # gas, fees flags example --gas auto --fees 200${denom}
 for (( ;; )); do
         echo -e "Get reward from Delegation"
-        echo -e "${PWD}\ny\n" | ${service} tx distribution withdraw-rewards ${VAL_ADDR} --chain-id ${chain} --from ${DEL_ADDR}  --commission ${keyring} ${gasfees} -y
+        echo -e "${PWD}\ny\n" | ${service} tx distribution withdraw-rewards ${VAL_ADDR} --chain-id ${chain} --from $wallet  --commission ${keyring} ${gasfees} -y
 for (( timer=20; timer>0; timer-- ))
         do
                 printf "* sleep for ${RED_COLOR}%02d${WITHOUT_COLOR} sec\r" $timer
@@ -23,7 +23,7 @@ for (( timer=20; timer>0; timer-- ))
 BAL=$(${service} q bank balances ${DEL_ADDR} -o json | jq -r '.balances | .[].amount')
 echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} ${DENOM}\n"
         echo -e "Claim rewards\n"
-        echo -e "${PWD}\n${PWD}\n" | ${service} tx distribution withdraw-all-rewards --from ${DEL_ADDR} --chain-id ${chain} ${gasfees} ${keyring} -y
+        echo -e "${PWD}\n${PWD}\n" | ${service} tx distribution withdraw-all-rewards --from $wallet --chain-id ${chain} ${gasfees} ${keyring} -y
 for (( timer=20; timer>0; timer-- ))
         do
                 printf "* sleep for ${RED_COLOR}%02d${WITHOU_COLOR} sec\r" $timer
