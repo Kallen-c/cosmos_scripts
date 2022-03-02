@@ -10,6 +10,10 @@ sudo curl -s https://raw.githubusercontent.com/Aleksandr7793/cosmos_scripts/main
 
 sudo nano $HOME/autostake/autostake.sh
 
+#save
+
+control+o control+x
+
 #Install screen
 
 sudo apt install screen
